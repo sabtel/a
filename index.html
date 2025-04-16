@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>طراحی وب‌سایت هوش مصنوعی</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazir&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ریست استایل و تنظیمات پایه */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Vazir', 'Open Sans', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f0f2f5;
+    }
+    a {
+      text-decoration: none;
+    }
+    /* هدر چسبان */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+    header:hover {
+      background: #fff;
+    }
+    header .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #4a90e2;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav ul li {
+      margin-right: 20px;
+    }
+    nav ul li a {
+      color: #333;
+      font-weight: 600;
+      transition: color 0.3s, transform 0.3s;
+    }
+    nav ul li a:hover {
+      color: #4a90e2;
+      transform: scale(1.05);
+    }
+    /* بخش قهرمان با تصویر پس زمینه و پوشش گرادیان */
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(74,144,226,0.8), rgba(144,19,254,0.8));
+      z-index: 1;
+    }
+    .hero * {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+    .hero button {
+      padding: 15px 30px;
+      font-size: 1em;
+      border: none;
+      background: #fff;
+      color: #4a90e2;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .hero button:hover {
+      background: #f0f0f0;
+      transform: translateY(-3px);
+    }
+    /* بخش ویژگی‌ها */
+    .features {
+      padding: 60px 40px;
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .feature {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 30px;
+      width: calc(33% - 60px);
+      margin: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .feature h3 {
+      margin-bottom: 15px;
+      color: #4a90e2;
+      font-weight: 700;
+    }
+    .feature p {
+      font-size: 0.95em;
+      line-height: 1.5;
+    }
+    /* فوتر مدرن */
+    footer {
+      background: #333;
+      color: #ddd;
+      text-align: center;
+      padding: 30px 40px;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+    footer p {
+      margin-bottom: 10px;
+    }
+    footer a {
+      color: #4a90e2;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: #fff;
+    }
+    /* ریسپانسیو */
+    @media (max-width: 768px) {
+      .feature {
+        width: calc(50% - 60px);
+      }
+      .hero h1 {
+        font-size: 2.8em;
+      }
+    }
+    @media (max-width: 480px) {
+      .feature {
+        width: 100%;
+        margin: 15px 0;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- هدر -->
+  <header>
+    <div class="logo">AIVision</div>
+    <nav>
+      <ul>
+        <li><a href="#">خانه</a></li>
+        <li><a href="#">ویژگی‌ها</a></li>
+        <li><a href="#">راه‌حل‌ها</a></li>
+        <li><a href="#">درباره ما</a></li>
+        <li><a href="#">وبلاگ</a></li>
+        <li><a href="#">تماس</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- بخش قهرمان -->
+  <section class="hero">
+    <h1>تقویت کسب‌وکار شما با هوش مصنوعی</h1>
+    <p>کشف کنید که چگونه راه‌حل‌های هوشمند می‌توانند عملیات شما را تغییر داده، بهره‌وری را افزایش دهند و فرصت‌های جدیدی ایجاد کنند.</p>
+    <button>شروع کنید</button>
+  </section>
+
+  <!-- بخش ویژگی‌ها -->
+  <section class="features">
+    <div class="feature">
+      <h3>یادگیری ماشین</h3>
+      <p>اجرای الگوریتم‌های پیشرفته برای کشف الگوها و تصمیم‌گیری‌های هوشمند.</p>
+    </div>
+    <div class="feature">
+      <h3>تحلیل داده‌ها</h3>
+      <p>استفاده از تحلیل‌های قوی برای تبدیل داده‌ها به بینش‌های عملی در زمان واقعی.</p>
+    </div>
+    <div class="feature">
+      <h3>اتوماسیون</h3>
+      <p>بهینه‌سازی فرآیندها با ابزارهای اتوماسیون هوشمند که برای مقیاس‌پذیری طراحی شده‌اند.</p>
+    </div>
+  </section>
+
+  <!-- فوتر -->
+  <footer>
+    <p>&copy; 2025 AIVision. تمامی حقوق محفوظ است.</p>
+    <p>
+      <a href="#">سیاست حفظ حریم خصوصی</a> | 
+      <a href="#">شرایط استفاده</a>
+    </p>
+  </footer>
+</body>
+</html>
